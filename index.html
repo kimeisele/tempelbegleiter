@@ -7,10 +7,192 @@
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#ffe066">
   <link rel="icon" href="icon.png" sizes="192x192">
-  <style>
-    /* ... [Komplettes CSS wie oben, identisch] ... */
-    /* Bitte das komplette CSS von der obigen index.html verwenden! */
-  </style>
+  body {
+  background: #fffbe6;
+  color: #4a3d09;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+  background: #fffde7;
+  box-shadow: 0 0 8px #ffe066;
+  min-height: 95vh;
+}
+h1 {
+  text-align: center;
+  color: #aa8800;
+  margin-bottom: 24px;
+}
+.tab-btn {
+  background: #ffe066;
+  border: none;
+  padding: 12px 18px;
+  margin: 0 6px 10px 0;
+  color: #4a3d09;
+  font-weight: bold;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+.tab-btn.active {
+  background: #fffbe6;
+  border-bottom: 2px solid #ffe066;
+}
+.tab-content {
+  background: #fffbe6;
+  border-radius: 0 0 10px 10px;
+  padding: 18px;
+  margin-bottom: 30px;
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+.liedcard {
+  background: #fff9cc;
+  border: 1px solid #ffe066;
+  border-radius: 8px;
+  margin: 18px 0;
+  box-shadow: 0 2px 6px #ffe06677;
+  transition: box-shadow 0.2s;
+}
+.liedcard-header {
+  padding: 12px 16px;
+  font-weight: bold;
+  color: #aa8800;
+  font-size: 1.14em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.liedcard-title {
+  flex: 1;
+}
+.toggle-btn {
+  background: none;
+  border: none;
+  font-size: 1.3em;
+  color: #bfa600;
+  cursor: pointer;
+}
+.liedcard-content {
+  padding: 13px 16px;
+  border-top: 1px solid #ffe066;
+  display: none;
+}
+.liedcard.open .liedcard-content {
+  display: block;
+}
+.sprachwahl {
+  margin-bottom: 8px;
+}
+.sprach-btn {
+  background: #ffe066;
+  border: none;
+  color: #665500;
+  padding: 5px 13px;
+  border-radius: 5px;
+  margin-right: 7px;
+  cursor: pointer;
+  font-size: 0.98em;
+}
+.sprach-btn.active {
+  background: #bfa600;
+  color: #fffbe6;
+}
+.erklaerung-btn {
+  margin-top: 8px;
+  background: #fffbe6;
+  border: 1px solid #ffe066;
+  border-radius: 4px;
+  color: #aa8800;
+  padding: 3px 9px;
+  cursor: pointer;
+  font-size: 0.95em;
+}
+.lied-erklaerung {
+  display: none;
+  margin-top: 10px;
+  background: #fff3b3;
+  border-left: 3px solid #ffe066;
+  padding: 7px 13px;
+  border-radius: 0 5px 5px 0;
+  color: #685b00;
+}
+.liedcard-content .lied-erklaerung.open {
+  display: block;
+}
+.category-filter {
+  margin-bottom: 18px;
+}
+.category-select {
+  background: #fffbe6;
+  border: 1px solid #ffe066;
+  border-radius: 4px;
+  padding: 6px 12px;
+  color: #665500;
+  font-size: 0.98em;
+}
+.song-list {
+  list-style: none;
+  padding: 0;
+  margin: 11px 0 19px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.song-list li {
+  background: #ffe066;
+  color: #4a3d09;
+  border-radius: 7px;
+  padding: 7px 15px;
+  cursor: pointer;
+  font-size: 1em;
+  border: 1px solid #fff9cc;
+  transition: background 0.2s;
+}
+.song-list li:hover {
+  background: #bfa600;
+  color: #fff;
+}
+footer {
+  text-align: center;
+  color: #aa8800;
+  font-size: 1em;
+  margin-top: 25px;
+  padding: 14px 0 8px 0;
+  background: transparent;
+}
+.top-btn {
+  background: #ffe066;
+  color: #665500;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.3em;
+  padding: 3px 10px;
+  margin-left: 7px;
+  cursor: pointer;
+}
+@media (max-width: 600px) {
+  .wrapper {
+    padding: 4px;
+  }
+  .tab-content {
+    padding: 7px;
+  }
+  .liedcard-header {
+    padding: 10px 8px;
+    font-size: 1em;
+  }
+  .liedcard-content {
+    padding: 8px 8px;
+  }
+}
 </head>
 <body>
 <div class="wrapper">
