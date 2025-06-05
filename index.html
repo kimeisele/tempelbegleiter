@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Hare Krishna Tempelbegleiter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ffe066">
+  <link rel="icon" href="icon.png" sizes="192x192">
+  <style>
+    /* ... [Komplettes CSS wie oben, identisch] ... */
+    /* Bitte das komplette CSS von der obigen index.html verwenden! */
+  </style>
+</head>
+<body>
+<div class="wrapper">
+  <h1>Hare Krishna Tempelbegleiter</h1>
+  <div class="tabs" role="tablist">
+    <button class="tab-btn active" onclick="showTab(0)">Tagesablauf</button>
+    <button class="tab-btn" onclick="showTab(1)">Mantras & Lieder</button>
+    <button class="tab-btn" onclick="showTab(2)">Feste & Kalender</button>
+  </div>
+
+  <!-- TAB 0: Tagesablauf -->
+  <div class="tab-content active">
+    <!-- ... [Tagesablauf siehe vorher] ... -->
+  </div>
+  <!-- TAB 1: Mantras & Lieder -->
+  <div class="tab-content">
+    <div class="section-head">Mantras & Lieder</div>
+    <div class="category-filter">
+      <label for="catfilter">Kategorien filtern:</label>
+      <select id="catfilter" class="category-select" onchange="filterMantras()">
+        <option value="all">Alle</option>
+        <!-- ... weitere Kategorien ... -->
+      </select>
+    </div>
+    <ul class="song-list" aria-label="Liederübersicht">
+      <li onclick="scrollToMantra('mahamantra')">Hare Krishna Maha-Mantra</li>
+      <li onclick="scrollToMantra('pancha')">Pancha-Tattva Mantra</li>
+      <li onclick="scrollToMantra('pranam')">Pranam-Mantra Prabhupada</li>
+      <!-- ... weitere Lieder ... -->
+    </ul>
+    <!-- *** MANTRA-KARTEN (die ersten 3 als Beispiel): *** -->
+    <div class="liedcard" id="mahamantra" data-cat="beliebt kirtan klassisch">
+      <div class="liedcard-header" onclick="toggleLiedCard(this)">
+        <span class="liedcard-title">Hare Krishna Maha-Mantra</span>
+        <button class="toggle-btn" aria-label="Aufklappen">&#9660;</button>
+      </div>
+      <div class="liedcard-content">
+        <div class="sprachwahl">
+          <button class="sprach-btn active" onclick="showLang(event, this, 'mahamantra', 'de')">Deutsch</button>
+          <button class="sprach-btn" onclick="showLang(event, this, 'mahamantra', 'orig')">Sanskrit</button>
+        </div>
+        <div id="mahamantra-de">
+          <b>Übersetzung:</b><br>
+          „O Krishna, o Energie Krishnas! Bitte beschäftigt mich im hingebungsvollen Dienst zu euch.“
+        </div>
+        <div id="mahamantra-orig" style="display:none;">
+          <b>Original:</b><br>
+          Hare Krishna, Hare Krishna, Krishna Krishna, Hare Hare<br>
+          Hare Rama, Hare Rama, Rama Rama, Hare Hare
+        </div>
+        <button class="erklaerung-btn" onclick="toggleErklaerung(event, this)">Erklärung anzeigen</button>
+        <div class="lied-erklaerung">
+          <b>Bedeutung:</b> Das Maha-Mantra ist das zentrale Mantra im Bhakti-Yoga und wird für Kirtan, Meditation und Reinigung des Herzens gesungen.
+        </div>
+      </div>
+    </div>
+    <div class="liedcard" id="pancha" data-cat="kirtan klassisch">
+      <div class="liedcard-header" onclick="toggleLiedCard(this)">
+        <span class="liedcard-title">Pancha-Tattva Mantra</span>
+        <button class="toggle-btn" aria-label="Aufklappen">&#9660;</button>
+      </div>
+      <div class="liedcard-content">
+        <div class="sprachwahl">
+          <button class="sprach-btn active" onclick="showLang(event, this, 'pancha', 'de')">Deutsch</button>
+          <button class="sprach-btn" onclick="showLang(event, this, 'pancha', 'orig')">Sanskrit</button>
+        </div>
+        <div id="pancha-de">
+          <b>Übersetzung:</b><br>
+          „Ehrerbietungen an Sri Krishna Chaitanya, Prabhu Nityananda, Sri Advaita, Gadadhara, Srivas und alle hingebungsvollen Begleiter.“
+        </div>
+        <div id="pancha-orig" style="display:none;">
+          <b>Original:</b><br>
+          Sri Krishna Chaitanya, Prabhu Nityananda, Sri Advaita, Gadadhara, Srivasadi Gaura Bhakta Vrinda
+        </div>
+        <button class="erklaerung-btn" onclick="toggleErklaerung(event, this)">Erklärung anzeigen</button>
+        <div class="lied-erklaerung">
+          <b>Bedeutung:</b> Vor jedem Kirtan wird dieses Mantra gesungen, um den Segen der Pancha-Tattva zu erbitten.
+        </div>
+      </div>
+    </div>
+    <div class="liedcard" id="pranam" data-cat="guru morgens">
+      <div class="liedcard-header" onclick="toggleLiedCard(this)">
+        <span class="liedcard-title">Pranam-Mantra Prabhupada</span>
+        <button class="toggle-btn" aria-label="Aufklappen">&#9660;</button>
+      </div>
+      <div class="liedcard-content">
+        <div class="sprachwahl">
+          <button class="sprach-btn active" onclick="showLang(event, this, 'pranam', 'de')">Deutsch</button>
+          <button class="sprach-btn" onclick="showLang(event, this, 'pranam', 'orig')">Sanskrit</button>
+        </div>
+        <div id="pranam-de">
+          <b>Übersetzung:</b><br>
+          „Ich bringe meine Ehrerbietungen zu seinem göttlichen Gnaden A.C. Bhaktivedanta Swami Prabhupada, der die Wissenschaft des Krishna-Bewusstseins predigt.“
+        </div>
+        <div id="pranam-orig" style="display:none;">
+          <b>Original:</b><br>
+          Nama om vishnu-padaya krishna-presthaya bhu-tale<br>
+          srimate bhaktivedanta-svamin iti namine
+        </div>
+        <button class="erklaerung-btn" onclick="toggleErklaerung(event, this)">Erklärung anzeigen</button>
+        <div class="lied-erklaerung">
+          <b>Bedeutung:</b> Dieses Pranam-Mantra wird zur Ehrerbietung an den spirituellen Lehrer gesungen.
+        </div>
+      </div>
+    </div>
+    <!-- ... weitere Karten wie oben einfügen ... -->
+  </div>
+  <!-- TAB 2: Feste & Kalender -->
+  <div class="tab-content">
+    <!-- ... Feste & Kalender (wie oben) ... -->
+  </div>
+</div>
+<footer>
+  Hare Krishna Tempelbegleiter &copy; 2025 &middot; Für alle Geräte optimiert.<br>
+  <button class="top-btn" onclick="scrollToTop()" aria-label="Nach oben"><span>&uarr;</span></button>
+</footer>
+<script>
+  // ... (JS wie oben, identisch!)
+</script>
+</body>
+</html>
